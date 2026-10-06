@@ -1,229 +1,305 @@
- SmartShelf AI
+# 🛒 SmartShelf AI
 
-SmartShelf AI is a Streamlit-based smart inventory and customer assistance system designed to make store inventory management easier.
+**SmartShelf AI** is an AI-based smart inventory and customer assistance system designed to simplify product management in stores and supermarkets.
 
-The application organizes products using:
+The system organizes products using a simple hierarchy:
 
-Section → Subsection → Product
+**Section → Subsection → Product**
 
-It helps monitor stock levels, track expiry dates, manage restocking and sales, remove expired stock, and quickly find products for customer needs.
+It helps store staff monitor stock, track expiry dates, manage sales and restocking, remove expired stock, and quickly find products for customers.
 
-✨ Features
+## 🚀 Features
 
-📂 Store Organization
+### 📂 Smart Store Organization
 
-Organizes products into Sections and Subsections.
+* Organizes products into Sections and Subsections.
+* Makes large inventories easier to manage.
+* Example: `Grocery → Snacks → Biscuits`
 
-Example: Grocery → Snacks → Biscuits.
+### 🔍 Product Search
 
-Sidebar section filtering.
+Search for products and view:
 
-🔍 Product Search
+* Product name
+* Section
+* Subsection
+* Available stock
+* Price
+* Expiry date
+* Stock status
+* Expiry status
 
-Search products by name and view:
+### 🛒 Customer Assistance
 
-Section and Subsection
+Customers can enter the product they need and SmartShelf AI provides:
 
-Available quantity
+* Product availability
+* Store location
+* Price
+* Current stock
+* Expiry information
 
-Price
+### 📊 Inventory Dashboard
 
-Expiry date
+The dashboard provides an overview of:
 
-Stock status
+* 📦 Total Products
+* 🔢 Total Stock
+* 🟡 Low Stock Products
+* 🔴 Out-of-Stock Products
+* ⏰ Expired Products
+* 📅 Products Expiring Soon
 
-Expiry status
+### 📦 Restock Management
 
-🛒 Customer Needs
+Store staff can:
 
-Enter a product name to find its:
+* Select a product
+* Enter the quantity to add
+* Automatically update the inventory
 
-Availability
+### 🛍️ Sales Management
 
-Store location
+The system allows staff to record product sales.
 
-Price
+When a sale is recorded:
 
-Stock status
+* Stock quantity is reduced automatically.
+* The system prevents selling more than the available quantity.
+* Low-stock and out-of-stock alerts are displayed.
 
-Expiry information
+### ⏰ Expiry Tracking
 
-📊 Inventory Dashboard
+SmartShelf AI monitors product expiry dates and categorizes them as:
 
-Displays:
+| Status           | Meaning                            |
+| ---------------- | ---------------------------------- |
+| 🔴 Expired       | Product has already expired        |
+| 🔴 Expires Today | Product expires today              |
+| 🟠 Expires Soon  | Product expires within 7 days      |
+| 🟡 Expiring      | Product expires within 30 days     |
+| 🟢 Valid         | Product has sufficient expiry time |
 
-Total products
+### 🗑️ Expired Stock Removal
 
-Total stock quantity
+Expired stock can be removed from active inventory by selecting the expired product and entering the quantity to remove.
 
-Low-stock products
+The product information can remain in the system instead of completely deleting the product record.
 
-Out-of-stock products
+### ⚠️ Stock Alerts
 
-Expired products
+The system automatically identifies:
 
-Products expiring within 30 days
+* 🔴 Out of Stock
+* 🟡 Low Stock
 
-📦 Restock Management
+This helps staff know which products need attention.
 
-Select a product and add stock quantity. The inventory is updated automatically.
+---
 
-🛒 Sales Management
+## 🛠️ Technologies Used
 
-Record products sold. The quantity is deducted from inventory and the application prevents selling more items than are available.
+* **Python**
+* **Streamlit**
+* **Pandas**
+* **Python Datetime**
 
-⏰ Expiry Tracking
+### Future AI Technologies
 
-Products are classified as:
+The project can be extended using:
 
-🔴 Expired
+* **YOLO**
+* **OpenCV**
+* **Computer Vision**
+* **Barcode/QR Detection**
+* **Machine Learning**
 
-🔴 Expires Today
+---
 
-🟠 Expires within 7 days
+## 📁 Project Structure
 
-🟡 Expires within 30 days
-
-🟢 Valid
-
-🗑️ Remove Expired Stock
-
-Expired stock can be removed by selecting the expired product and entering the quantity to remove. The product record is retained rather than deleting the product completely.
-
-⚠️ Stock Alerts
-
-The system identifies:
-
-🔴 Out of Stock
-
-🟡 Low Stock
-
-🛠️ Technologies Used
-
-Python
-
-Streamlit – web application interface
-
-Pandas – inventory data handling
-
-Python datetime – expiry-date calculations
-
-📁 Project Structure
-
+```text
 SmartShelf-AI/
+│
 ├── app.py
 ├── requirements.txt
 ├── README.md
 ├── .gitignore
 └── yolo11n.pt
+```
 
-yolo11n.pt is optional and can be used later for YOLO-based product detection.
+> `yolo11n.pt` can be added when camera-based product detection is integrated.
 
-🚀 How to Run
+---
 
-1. Create a virtual environment
+## ⚙️ Installation
 
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/your-username/SmartShelf-AI.git
+```
+
+### Step 2: Open the Project
+
+```bash
+cd SmartShelf-AI
+```
+
+### Step 3: Create a Virtual Environment
+
+```bash
 python -m venv venv
+```
 
-Activate it on Windows PowerShell:
+Activate it on Windows:
 
+```bash
 venv\Scripts\activate
+```
 
-2. Install dependencies
+### Step 4: Install Requirements
 
+```bash
 pip install -r requirements.txt
+```
 
-3. Run the application
+### Step 5: Run the Application
 
+```bash
 streamlit run app.py
+```
 
-The SmartShelf AI application will open in your browser.
+The application will open in your web browser.
 
-🔄 Application Flow
+---
 
-Store
-  ↓
-Section
-  ↓
-Subsection
-  ↓
-Product
-  ↓
-Stock & Expiry Tracking
-  ↓
-Customer Assistance
-  ↓
-Alerts / Restock / Sale / Expired Stock Removal
+## 🔄 System Workflow
 
-📦 Sample Inventory Categories
+```text
+                 SmartShelf AI
+                       │
+                       ▼
+                    Store
+                       │
+                       ▼
+                   Section
+                       │
+                       ▼
+                  Subsection
+                       │
+                       ▼
+                    Product
+                       │
+             ┌─────────┴─────────┐
+             ▼                   ▼
+        Stock Tracking      Expiry Tracking
+             │                   │
+             ▼                   ▼
+       Sales / Restock      Expiry Alerts
+             │                   │
+             └─────────┬─────────┘
+                       ▼
+              Customer Assistance
+```
 
+---
+
+## 🏪 Example Store Structure
+
+```text
 Grocery
-
-Snacks
-
-Beverages
-
-Rice & Grains
+│
+├── Snacks
+│   ├── Biscuits
+│   ├── Chips
+│   └── Chocolate
+│
+├── Beverages
+│   ├── Juice
+│   └── Water Bottle
+│
+└── Rice & Grains
+    ├── Rice
+    └── Wheat
 
 Dairy
-
-Milk Products
+│
+└── Milk Products
+    ├── Milk
+    ├── Curd
+    └── Butter
 
 Personal Care
+│
+├── Bath Products
+│   └── Soap
+│
+├── Hair Care
+│   └── Shampoo
+│
+└── Oral Care
+    └── Toothpaste
+```
 
-Bath Products
+---
 
-Hair Care
+## 🤖 Future Enhancements
 
-Oral Care
+The project can be further improved with:
 
-Household
+* 📷 Real-time camera-based product detection
+* 🤖 YOLO object detection
+* 🔢 Automatic product counting
+* 📦 Barcode and QR-code scanning
+* 🗄️ Database integration
+* 🔐 Login and authentication
+* 📈 Advanced inventory analytics
+* 🔔 Automatic stock notifications
+* 🧠 AI-based demand prediction
+* 🏪 Shelf-level product location tracking
+* 🧾 Sales history and reports
+* ☁️ Cloud deployment
 
-Cleaning
+---
 
-Laundry
+## ⚠️ Current Limitations
 
-🤖 Future Enhancements
+* The current prototype stores inventory using Streamlit session state.
+* Inventory changes may reset when the application session is restarted.
+* Camera-based YOLO detection is planned as a future enhancement.
+* Exact brand/SKU recognition requires suitable product data or a trained/reference model.
 
-📷 Camera-based product detection
+---
 
-🤖 YOLO-based product recognition
+## 🎯 Project Objective
 
-🔢 Automatic product counting
+The objective of **SmartShelf AI** is to make inventory management faster, simpler, and more organized by combining stock management, expiry tracking, customer assistance, sales management, restocking, and intelligent alerts in one application.
 
-📦 Barcode/QR code scanning
+---
 
-🗄️ Database storage
+## 💡 Why SmartShelf AI?
 
-🔐 User login and authentication
+Traditional inventory management can require manual checking of shelves and stock records.
 
-📈 Inventory analytics
+SmartShelf AI provides a centralized system where store staff can easily:
 
-🔔 Automatic notifications
+**Find → Track → Restock → Sell → Monitor → Remove Expired Stock**
 
-🧠 AI-based demand prediction
+This can reduce manual effort and make inventory information easier to access.
 
-🏪 Shelf-level product location tracking
+---
 
-🧾 Sales history and inventory reports
+## 👩‍💻 Project Information
 
-⚠️ Current Limitations
+**Project Name:** SmartShelf AI
+**Type:** AI-Based Smart Inventory and Customer Assistance System
+**Application:** Streamlit Web Application
+**Programming Language:** Python
+**Domain:** Artificial Intelligence / Inventory Management / Computer Vision
 
-Product data is currently stored in Streamlit session state.
+---
 
-Inventory changes may reset when the application session is restarted.
+## ⭐ Future Vision
 
-Camera/YOLO detection is not yet integrated into the current inventory code.
-
-Exact brand/SKU recognition requires suitable product data or a trained/reference model.
-
-🎯 Project Objective
-
-The main objective of SmartShelf AI is to simplify inventory management by providing a structured system for tracking products, stock levels, expiry dates, customer needs, sales, restocking, and inventory alerts.
-
-👩‍💻 Project Information
-
-Project: SmartShelf AI
-Type: AI-Based Smart Inventory and Customer Assistance System
-Platform: Streamlit Web Application
-Language: Python
+SmartShelf AI aims to become a complete intelligent retail assistant that can use cameras and AI to automatically detect products, count shelf inventory, identify low-stock items, monitor expiry dates, and assist customers in finding products.
